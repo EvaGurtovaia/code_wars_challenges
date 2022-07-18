@@ -39,7 +39,7 @@ const summation = (num) => {
     return sum;
 };
 
-//Find the missing letter
+//Find The Missing Letter
 
 // Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
 
@@ -50,21 +50,20 @@ const summation = (num) => {
 
 // ['a','b','c','d','f'] -> 'e' ['O','Q','R','S'] -> 'P'
 
-
-let findMissingLetter = arr => {  
-    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    if (arr[0] === arr[0].toUpperCase()){
-      alphabet = alphabet.toUpperCase();
-      console.log(alphabet)
+let findMissingLetter = (arr) => {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz";
+    if (arr[0] === arr[0].toUpperCase()) {
+        alphabet = alphabet.toUpperCase();
+        console.log(alphabet);
     }
     const startingPosition = alphabet.indexOf(arr[0]);
-  
-    for (let i = startingPosition; i < startingPosition + arr.length; i++){
-    if (alphabet[i] !== arr[i - startingPosition]){
-      return alphabet[i];
+
+    for (let i = startingPosition; i < startingPosition + arr.length; i++) {
+        if (alphabet[i] !== arr[i - startingPosition]) {
+            return alphabet[i];
+        }
     }
-  }
-  };
+};
 
 // Basic Mathematical Operations
 
@@ -79,11 +78,55 @@ let findMissingLetter = arr => {
 // ('*', 5, 5) --> 25
 // ('/', 49, 7) --> 7
 
+function basicOp(operation, value1, value2) {
+    if (operation == "+") {
+        return value1 + value2;
+    }
+    if (operation == "-") {
+        return value1 - value2;
+    }
+    if (operation == "*") {
+        return value1 * value2;
+    }
+    if (operation == "/") {
+        return value1 / value2;
+    }
+}
 
-  function basicOp(operation, value1, value2)
-{
-  if(operation == '+')return value1 + value2;
-  if(operation == '-')return value1 - value2;
-  if(operation == '*')return value1 * value2;
-  if(operation == '/')return value1 / value2;
+//Count The Smiley Faces
+
+// Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+
+// Rules for a smiling face:
+
+// Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+// A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+// Every smiling face must have a smiling mouth that should be marked with either ) or D
+// No additional characters are allowed except for those mentioned.
+
+// Valid smiley face examples: :) :D ;-D :~)
+// Invalid smiley faces: ;( :> :} :]
+
+// Example
+// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+
+function countSmileys(arr) {
+    const result = arr.filter(
+        (char) =>
+            char === ":)" ||
+            char === ";)" ||
+            char === ":-)" ||
+            char === ";-)" ||
+            char === ":-D" ||
+            char === ":~D" ||
+            char === ":D" ||
+            char === ";D" ||
+            char === ";~D" ||
+            char === ";-D" ||
+            char === ":~)" ||
+            char === ";~)"
+    );
+    return result.length;
 }
