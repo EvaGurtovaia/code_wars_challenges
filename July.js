@@ -133,11 +133,42 @@ function countSmileys(arr) {
 
 //Square(n) sum
 
-
-// Complete the square sum function so that 
-//it squares each number passed into it and then 
+// Complete the square sum function so that
+//it squares each number passed into it and then
 //sums the results together.
 
 // For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
 
-const squareSum = numbers => numbers.reduce((prevVal, curVal) => prevVal + Math.pow(curVal, 2), 0)
+const squareSum = (numbers) =>
+    numbers.reduce((prevVal, curVal) => prevVal + Math.pow(curVal, 2), 0);
+
+//Sum of odd numbers
+
+// Given the triangle of consecutive odd numbers:
+
+//              1
+//           3     5
+//        7     9    11
+//    13    15    17    19
+// 21    23    25    27    29
+// ...
+// Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+
+// 1 -->  1
+// 2 --> 3 + 5 = 8
+
+const rowSumOddNumbers = (n) => {
+    let firstDigit = n * n - (n - 1);
+    let result = 0;
+    let count = 0;
+    while (count < n) {
+        if (firstDigit % 2 !== 0) {
+            result += firstDigit;
+            count++;
+        }
+        firstDigit++;
+    }
+    return result;
+};
+
+const rowSumOddNumbersTwo = (n) => Math.pow(n, 3);
