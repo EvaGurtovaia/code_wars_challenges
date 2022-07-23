@@ -172,3 +172,26 @@ const rowSumOddNumbers = (n) => {
 };
 
 const rowSumOddNumbersTwo = (n) => Math.pow(n, 3);
+
+//Are You Playing Banjo?
+
+// Create a function which answers the question "Are you playing banjo?".
+// If your name starts with the letter "R" or lower case "r", you are playing banjo!
+
+// The function takes a name as its only argument, and returns one of the following strings:
+
+// name + " plays banjo" 
+// name + " does not play banjo"
+
+const areYouPlayingBanjo = name => {
+    let result;
+    const letters = "r, R";
+    if (letters.indexOf(name[0]) !== -1) {
+      result = name + " plays banjo"; 
+    } else { result = name + " does not play banjo";}
+      return result;
+    };
+
+const areYouPlayingBanjo2 = name => {
+    return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
+  };
