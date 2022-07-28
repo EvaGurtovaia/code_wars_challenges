@@ -313,7 +313,6 @@ const makeNegative2 = (num) => {
     return num < 0 ? num : -num;
 };
 
-
 //Find Maximum and Minimum Values of a List
 
 //DESCRIPTION:
@@ -325,13 +324,51 @@ const makeNegative2 = (num) => {
 // * [42, 54, 65, 87, 0]             -> min = 0, max = 87
 // * [5]                             -> min = 5, max = 5
 // Notes
-// You may consider that there will not be any empty arrays/vectors. 
+// You may consider that there will not be any empty arrays/vectors.
 
-
-const min = list => {
+const min = (list) => {
     return Math.min(...list);
 };
 
-const max = list => { 
+const max = (list) => {
     return Math.max(...list);
 };
+
+// Frequency Counter - validAnagram
+// Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+// Examples:
+
+// validAnagram('', '') // true
+// validAnagram('aaz', 'zza') // false
+// validAnagram('anagram', 'nagaram') // true
+// validAnagram("rat","car") // false) // false
+// validAnagram('awesome', 'awesom') // false
+// validAnagram('amanaplanacanalpanama', 'acanalmanplanpamana') // false
+// validAnagram('qwerty', 'qeywrt') // true
+// validAnagram('texttwisttime', 'timetwisttext') // true
+// Note: You may assume the string contains only lowercase alphabets.
+
+const validAnagram = (str1, str2) => {
+    if (str1.length !== str2.length) return false;
+    let obj1 = {};
+    let obj2 = {};
+
+    for (let char of str1) {
+        obj1[char] = (obj1[char] || 0) + 1;
+    }
+    for (let char of str2) {
+        obj2[char] = (obj2[char] || 0) + 1;
+    }
+    console.log(obj1);
+    console.log(obj2);
+    for (let key in obj1) {
+        if (!(key in obj2)) return false;
+
+        if (obj1[key] !== obj2[key]) return false;
+    }
+
+    return true;
+};
+
+console.log(validAnagram("anagram", "nagaram"));
