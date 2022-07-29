@@ -372,3 +372,28 @@ const validAnagram = (str1, str2) => {
 };
 
 console.log(validAnagram("anagram", "nagaram"));
+
+// Binary Search 
+// Write a function called binarySearch which accepts a sorted array
+// and a value and returns the index at which the value exists. 
+//Otherwise, return -1
+
+const binarySearch = (arr, value) => {
+    let leftPointer = 0;
+    let rightPointer = arr.length - 1;
+    let middlePointer = Math.floor((leftPointer + rightPointer) / 2);
+    while (arr[middlePointer] !== value && leftPointer <= rightPointer) {
+        if (arr[middlePointer] < value) {
+            leftPointer = middlePointer + 1;
+        } else {
+            rightPointer = middlePointer - 1;
+        }
+        middlePointer = Math.floor((leftPointer + rightPointer) / 2);
+    }
+    if (arr[middlePointer] === value) {
+        return middlePointer;
+    }
+    return -1;
+};
+
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 8));
