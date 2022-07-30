@@ -373,9 +373,9 @@ const validAnagram = (str1, str2) => {
 
 console.log(validAnagram("anagram", "nagaram"));
 
-// Binary Search 
+// Binary Search
 // Write a function called binarySearch which accepts a sorted array
-// and a value and returns the index at which the value exists. 
+// and a value and returns the index at which the value exists.
 //Otherwise, return -1
 
 const binarySearch = (arr, value) => {
@@ -397,3 +397,21 @@ const binarySearch = (arr, value) => {
 };
 
 console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 8));
+
+//Frequency of a substring in a string
+//Given an input string and a substring. 
+//Find the frequency of occurrences of a substring in a given string.
+//Naive Search
+
+const naiveSearch = (long, short) => {
+    let count = 0;
+    for (let i = 0; i < long.length; i++) {
+        for (let j = 0; j < short.length; j++) {
+            if (short[j] !== long[i + j]) break;
+            if (j === short.length - 1) count++;
+        }
+    }
+    return count;
+};
+
+console.log(naiveSearch("hahalmaoha", "ha"));
