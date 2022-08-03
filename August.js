@@ -107,3 +107,23 @@ const selectionSort = (arr) => {
 };
 
 console.log(selectionSort([8, 1, 2, 3, 4]));
+
+//Insertion Sort Implementation
+
+const insertionSort = (arr) => {
+    let currentVal;
+    for (var i = 1; i < arr.length; i++) {
+        console.log("i", i);
+        currentVal = arr[i];
+        console.log("current val", currentVal);
+        for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+            console.log("j", j);
+            arr[j + 1] = arr[j];
+            console.log(arr[j + 1]);
+        }
+        arr[j + 1] = currentVal;
+    }
+    return arr;
+};
+
+console.log(insertionSort([4, 2, 9, 76, 5]));
