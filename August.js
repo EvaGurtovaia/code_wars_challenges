@@ -127,3 +127,20 @@ const insertionSort = (arr) => {
 };
 
 console.log(insertionSort([4, 2, 9, 76, 5]));
+
+//Reversed Strings
+
+// Complete the solution so that it reverses the string passed into it.
+
+// 'world'  =>  'dlrow'
+// 'word'   =>  'drow'
+
+const solution = (s) => {
+    let res = [];
+    for (let i = s.length - 1; i >= 0; i--) {
+        res.push(s[i]);
+    }
+    return res.join("");
+};
+
+const solution2 = s => [...s].reverse().join('');
