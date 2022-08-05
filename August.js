@@ -143,7 +143,7 @@ const solution = (s) => {
     return res.join("");
 };
 
-const solution2 = s => [...s].reverse().join('');
+const solution2 = (s) => [...s].reverse().join("");
 
 //Persistent Bugger
 
@@ -155,12 +155,34 @@ const solution2 = s => [...s].reverse().join('');
 // 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 // 4 --> 0 (because 4 is already a one-digit number)
 
-const persistence = num => {
+const persistence = (num) => {
     let counter = 0;
-    while (num.toString().length !== 1){
-      num = num.toString().split("").reduce((a, b) => a*b)
-      counter ++;
+    while (num.toString().length !== 1) {
+        num = num
+            .toString()
+            .split("")
+            .reduce((a, b) => a * b);
+        counter++;
     }
     return counter;
- };
- 
+};
+
+//Abbreviate a Two Word Name
+
+//  Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+// The output should be two capital letters with a dot separating them.
+// It should look like this:
+// Sam Harris => S.H
+// patrick feeney => P.F
+
+const abbrevName = (name) => {
+    let res = new Array(name[0]);
+    for (let i = 0; i < name.length; i++) {
+        if (name[i] === " ") {
+            res.push(name[i + 1]);
+        }
+    }
+    return res.map((ch) => ch.toUpperCase()).join(".");
+};
+
+console.log(abbrevName("Sam Harris"));
