@@ -245,3 +245,22 @@ const bmi2 = (weight, height) => {
         ? "Overweight"
         : "Obese";
 };
+
+//Shortest Word
+
+//Simple, given a string of words,
+// return the length of the shortest word(s).
+
+// String will never be empty and
+// you do not need to account for different data types.
+
+const findShort = (s) => {
+    let arr = s.split(" ");
+    let smallest = arr[0].length;
+    for (let i = 1; i < arr.length - 1; i++) {
+        if (smallest > arr[i].length) {
+            smallest = arr[i].length;
+        }
+    }
+    return smallest;
+};
