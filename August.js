@@ -264,3 +264,28 @@ const findShort = (s) => {
     }
     return smallest;
 };
+
+//nonrepeatedCharacter
+
+// Given an arbitrary input string, return the first nonrepeated character in
+// the string. For example:
+
+//    firstNonRepeatedCharacter('ABA'); // => 'B'
+//    firstNonRepeatedCharacter('AACBDB'); // => 'C'
+
+const firstNonRepeatedCharacter = (str) => {
+    let chars = {};
+    for (let i = 0; i < str.length; i++) {
+        c = str[i];
+        if (!chars[c]) chars[c] = 1;
+        else chars[c]++;
+    }
+    console.log(chars);
+    for (let j = 0; j < str.length; j++) {
+        c = str[j];
+        if (chars[c] === 1) return c;
+    }
+    return null;
+};
+
+console.log(firstNonRepeatedCharacter("ABA"));
