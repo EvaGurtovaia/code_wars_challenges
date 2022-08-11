@@ -330,3 +330,26 @@ function power(base, exponent) {
     if (exponent === 0) return 1;
     return base * power(base, exponent - 1);
 }
+
+//ProductOfArray Challenge
+
+//Write a function called productOfArray 
+//which takes in an array of numbers and returns the product of them all.
+// productOfArray([1,2,3]) // 6
+// productOfArray([1,2,3,10]) // 60
+
+const productOfArray = arr => {
+    let result = 1;
+    function helperMethod(input){
+        if (input.length === 0) return;
+        else {result =  result * input[0];
+        console.log(result);
+        helperMethod(input.slice(1));
+      }
+    }
+      
+    helperMethod(arr);
+    return result;
+    }
+    
+    console.log(productOfArray([1,2,3]))
