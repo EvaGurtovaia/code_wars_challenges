@@ -376,3 +376,15 @@ function fib(index) {
     if (index <= 2) return 1;
     return fib(index - 2) + fib(index - 1);
 }
+
+// Reverse
+
+// Write a recursive function called reverse which accepts a string
+// and returns a new string in reverse.
+
+function reverseString(str) {
+    if (str === "") return "";
+    else return reverseString(str.substr(1)) + str.charAt(0);
+}
+
+console.log(reverseString("hello"));
