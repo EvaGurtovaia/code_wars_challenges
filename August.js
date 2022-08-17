@@ -320,6 +320,8 @@ function factorial(num) {
     return num * factorial(num - 1);
 }
 
+const factorial2 = n => n > 1 ? n*factorial(n-1) : 1;
+
 //Power Challenge
 
 // Write a function called power which accepts a base and an exponent.
