@@ -453,7 +453,7 @@ function numberToString(num) {
 // "found the needle at position " plus the index it found the needle, so:
 
 // Example(Input --> Output)
-// ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle" 
+// ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"] --> "found the needle"
 
 function findNeedle(haystack) {
     let index;
@@ -467,4 +467,39 @@ function findNeedle(haystack) {
 
 function findNeedle2(haystack) {
     return "found the needle at position " + haystack.indexOf("needle");
-  }
+}
+
+//Implement Quick Sort Algorithm
+
+function pivot(arr, start = 0, end = arr.length + 1) {
+    function swap(array, i, j) {
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    let pivot = arr[start];
+    let swapIdx = start;
+
+    for (let i = start + 1; i < arr.length; i++) {
+        if (pivot > arr[i]) {
+            swapIdx++;
+            swap(arr, swapIdx, i);
+        }
+    }
+    swap(arr, start, swapIdx);
+    return swapIdx;
+}
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        let pivotIdx = pivot(arr, left, right);
+        //left
+        quickSort(arr, left, pivotIdx - 1);
+        // right
+        quickSort(arr, pivotIdx + 1, right);
+    }
+    return arr;
+}
+
+console.log(quickSort([4, 6, -3, 9, 1, 2, 5, 17]));
