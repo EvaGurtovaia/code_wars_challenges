@@ -503,3 +503,40 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 }
 
 console.log(quickSort([4, 6, -3, 9, 1, 2, 5, 17]));
+
+//Singly Linked List Challenge
+
+//Implement singly linked list  and push method
+
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(val) {
+        let newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.lenght++;
+        return this;
+    }
+}
+
+let list = new SinglyLinkedList();
+list.push("HELLO");
+list.push("You");
+
+console.log(list);
