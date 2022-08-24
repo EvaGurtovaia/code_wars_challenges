@@ -576,6 +576,17 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    ///Implement get method
+    get(idx) {
+        if (idx < 0 || idx >= this.length) return null;
+        let count = 0;
+        let current = this.head;
+        while (count !== idx) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
 }
 
 let list = new SinglyLinkedList();
