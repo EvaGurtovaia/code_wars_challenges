@@ -530,8 +530,27 @@ class SinglyLinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
-        this.lenght++;
+        this.length++;
         return this;
+    }
+
+    ///Implement pop method
+    pop() {
+        if (!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.tail = null;
+            this.head = null;
+        }
+        return current;
     }
 }
 
@@ -539,4 +558,10 @@ let list = new SinglyLinkedList();
 list.push("HELLO");
 list.push("You");
 
+console.log(list);
+
+list.pop();
+list.pop();
+console.log(list);
+list.pop();
 console.log(list);
