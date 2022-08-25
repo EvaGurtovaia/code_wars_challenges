@@ -596,6 +596,19 @@ class SinglyLinkedList {
         }
         return false;
     }
+    ///Implement insert method
+    insert(idx, value) {
+        if (idx < 0 || idx > this.length) return false;
+        if (idx === this.length) return !!this.push(value);
+        if (idx === 0) return !!this.unshift(value);
+        let newNode = new Node(value);
+        let prev = this.get(idx - 1);
+        let temprHold = prev.next;
+        prev.next = newNode;
+        newNode.next = temprHold;
+        this.length++;
+        return true;
+    }
 }
 
 let list = new SinglyLinkedList();
