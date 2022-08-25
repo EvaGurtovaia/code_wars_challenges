@@ -609,6 +609,18 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+    // Implement remove method
+    remove(idx) {
+        if (idx < 0 || idx > this.length) return undefined;
+        if (idx === this.length - 1) return this.pop();
+        if (idx === 0) return this.shift();
+        let prevNode = this.get(idx - 1);
+        let removedNode = prevNode.next;
+        prevNode = prevNode.next.next;
+        //prevNode.next = removedNode.next
+        this.length--;
+        return removedNode;
+    }
 }
 
 let list = new SinglyLinkedList();
