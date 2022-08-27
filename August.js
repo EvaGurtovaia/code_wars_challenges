@@ -616,10 +616,25 @@ class SinglyLinkedList {
         if (idx === 0) return this.shift();
         let prevNode = this.get(idx - 1);
         let removedNode = prevNode.next;
-        prevNode = prevNode.next.next;
-        //prevNode.next = removedNode.next
+        //prevNode = prevNode.next.next;
+        prevNode.next = removedNode.next;
         this.length--;
         return removedNode;
+    }
+    //Implement reverse method
+    reverse() {
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        let prev = null;
+        let next;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
     }
 }
 
