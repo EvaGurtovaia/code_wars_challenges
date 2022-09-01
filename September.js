@@ -61,6 +61,20 @@ class DoublyLinkedList {
         this.length--;
         return oldHead;
     }
+    //Implement unshift method
+    unshift(val) {
+        let newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head.prev = newNode;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 list = new DoublyLinkedList();
@@ -69,14 +83,11 @@ list.push(17);
 list.push(19);
 console.log(list);
 
-
 //Is Subsequence
 
 // Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
 
 // A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
-
- 
 
 // Example 1:
 
@@ -88,18 +99,18 @@ console.log(list);
 // Output: false
 
 const isSubsequence = (str1, str2) => {
-    if (str1.length === 0 && str2.length === 0)
-      return true;
-   let count = 0;
-     for (let char of str2){
-       if (str1[count] === char){
-         count ++;
-       }
-       if (str1.length === count){
-         return true;}
-     }
-     return false;
-   };
+    if (str1.length === 0 && str2.length === 0) return true;
+    let count = 0;
+    for (let char of str2) {
+        if (str1[count] === char) {
+            count++;
+        }
+        if (str1.length === count) {
+            return true;
+        }
+    }
+    return false;
+};
 
 //Isomorphic Strings
 
@@ -116,20 +127,15 @@ const isSubsequence = (str1, str2) => {
 // Input: s = "foo", t = "bar"
 // Output: false
 
-   var isIsomorphic = function(s, t) {
+var isIsomorphic = function (s, t) {
     let obj1 = {};
     let obj2 = {};
     for (let i = 0; i < s.length; i++) {
-         if (obj1[s[i]] !== obj2[t[i]])
-             return false;
+        if (obj1[s[i]] !== obj2[t[i]]) return false;
         else {
             obj1[s[i]] = i;
             obj2[t[i]] = i;
         }
     }
     return true;
-    
 };
-
-
- 
