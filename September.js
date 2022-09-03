@@ -76,30 +76,37 @@ class DoublyLinkedList {
         return this;
     }
     //Implement get method
-    get(idx){
-        if(idx < 0 || idx >= this.length) return null;
+    get(idx) {
+        if (idx < 0 || idx >= this.length) return null;
         let count, current;
-        if(idx <= this.length/2){
-          console.log("front")
+        if (idx <= this.length / 2) {
+            console.log("front");
             count = 0;
             current = this.head;
-            while(count !== idx){
+            while (count !== idx) {
                 current = current.next;
                 count++;
             }
         } else {
-          console.log("back")
+            console.log("back");
             count = this.length - 1;
             current = this.tail;
-            while(count !== idx){
+            while (count !== idx) {
                 current = current.prev;
                 count--;
             }
         }
         return current;
-    }  
-   
-   
+    }
+    //Implement set method
+    set(idx, val) {
+        let curNode = this.get(idx);
+        if (curNode != null) {
+            curNode.val = val;
+            return true;
+        }
+        return false;
+    }
 }
 
 list = new DoublyLinkedList();
