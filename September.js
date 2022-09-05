@@ -125,11 +125,11 @@ class DoublyLinkedList {
         return true;
     }
     //Implement remove method
-    remove(idx){
-        if(idx < 0 || idx >= this.length) return null;
+    remove(idx) {
+        if (idx < 0 || idx >= this.length) return null;
         if (idx === 0) return this.shift();
-        if ( idx === this.length-1) return this.pop();
-        
+        if (idx === this.length - 1) return this.pop();
+
         let removedNode = this.get(idx);
         let prevNode = removedNode.prev;
         let nextNode = removedNode.next;
@@ -139,7 +139,25 @@ class DoublyLinkedList {
         removedNode.prev = null;
         this.length--;
         return removedNode;
-      }
+    }
+    //Implement reverse method
+    reverse() {
+        if (!this.head) return undefined;
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        let prev = null;
+        let next;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.prev = next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
 }
 
 list = new DoublyLinkedList();
