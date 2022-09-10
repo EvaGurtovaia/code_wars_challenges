@@ -222,3 +222,38 @@ var isIsomorphic = function (s, t) {
     }
     return true;
 };
+
+//Implement Stack and Push Method
+
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class Stack {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.length = 0;
+    }
+    push(val) {
+        let newNode = new Node(val);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            let current = this.first;
+            this.first = newNode;
+            this.first.next = current;
+        }
+        return ++this.length;
+    }
+}
+let stack = new Stack();
+console.log(stack.push(3));
+console.log(stack.push("bebe"));
+console.log(stack.push("lalala"));
+
+console.log(stack);
