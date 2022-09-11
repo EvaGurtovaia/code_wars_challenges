@@ -250,6 +250,18 @@ class Stack {
         }
         return ++this.length;
     }
+    //Implement pop method
+    pop() {
+        let deletedNode = this.first;
+        if (!this.first) return null;
+        if (this.length === 1) {
+            this.last = null;
+        } else {
+            this.first = this.first.next;
+        }
+        this.length--;
+        return deletedNode.value;
+    }
 }
 let stack = new Stack();
 console.log(stack.push(3));
